@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+</head>
+<body>
+    <div id="box" title="dafei">
+    	测试div
+    </div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<script>
+		/*
+   			节点分为三类
+   			1、元素节点：其实就是标签，<div></div>
+   			2、文本节点：其实就是标签内的纯文本，测试DIV
+   			3、属性节点：其实就是标签的属性，id="box"
+		*/
+		window.onload = function(){
+			var box = document.getElementById('box');
+			//alert(box.id);  //获取这个元素节点id属性的值，注意不是属性节点
+			//alert(box.title);  //获取title属性的值
+			//alert(box.style);   //获取style属性对象
+			//alert(box.style.color);   //获取style属性对象中color属性的值
+			//alert(box.className);  //获取class属性的值
+			var li = document.getElementsByTagName('li');
+			//alert(li.length);   //返回li的数量
+			//box.setAttribute('title',"主题");
+			//box.setAttribute('align','center');
+			box.setAttribute('bbb',"cccc");
+
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量以及作用域</title>
+</head>
+<body>
+	<script>
+		/*
+		var box = new Object();   //{}
+		box.name = "ff";
+		alert(box.name);
+
+		var box = "Lee";
+		box.name = "Lv";
+		alert(box.name);   //因为box不是引用类型
+		*/
+		function box(num){
+			num+=10;
+			return num;
+		}
+		var num = 50;
+		alert(box(num));
+
+	</script>
+</body>
+</html>

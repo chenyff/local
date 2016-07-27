@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="testApp" ng-controller="testController">
+		{{carname}}
+		<hr>
+		<select name="" id="">
+		    <option value="-1">请选择</option>
+			<option value="{{$index}}" ng-repeat="opt in opts">
+				{{opt}}
+			</option>
+		</select>
+		<select ng-model="selectName" ng-options="x for x in opts"></select>
+
+		<hr>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+			<tr ng-repeat="mess in users">
+				<td>{{mess.name}}</td>
+				<td>{{mess.age}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+		var app = angular.module('testApp',[]);
+
+		app.controller('testController',function($scope){
+			$scope.carname = 'Volvo';
+			$scope.opts = '北京 上海 天津 福建'.split(' ');
+			$scope.users = [{name:'aaa',age:22},{name:'bbb',age:23},{name:'ccc',age:25}];
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>module数据同步</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		我叫：<input type="text" ng-model="myName"><br>
+		我今年：<input type="text" ng-model="myAge">岁<br>
+		<br>
+		今年{{myAge}}的{{myName}}
+	</div>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.myName = "陈宇飞";
+			$scope.myAge = "23";
+		})
+	</script>
+</body>
+</html>

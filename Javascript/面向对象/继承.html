@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+	<script>
+		function Box(){
+			this.name = "cc";
+		}
+		function Desk(){
+			this.age = 99;
+		}
+		function Table(){
+			this.level = 'AAA';
+		}
+		Desk.prototype = new Box();
+		Table.prototype = new Desk();
+		var desk = new Desk();
+
+		//alert(desk.age);
+		alert(desk.name);
+
+		var level = new Table();
+		
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

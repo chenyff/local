@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本包装类型</title>
+</head>
+<body>
+	<script>
+		var box = "Mr.chenyufei";
+		//alert(box);
+		//alert(typeof box);
+		//alert(box.substring(2));   //索引从0开始，从第二个位置截取到末尾的字符串输出
+		/*var nn = 102342323443;
+		alert(nn.toLocaleString());*/
+		//alert(box.charAt(1));   //输出第一个的值
+		//alert(box.concat('is','Teacher','!'));   //参数字符串链接
+		//alert(box.slice(4,6)); //he  输出索引4到6的值，不包含六
+		//alert(box.substring(4,6));  //同上
+
+		//alert(box.substr(4,6))  //从索引4以后截取六个值
+
+		/*alert(box.slice(4));
+		alert(box.substring(4));
+		alert(box.substr(4));*/     //都是索引4以后的全部值
+		//alert(Math.floor(Math.random()*10+1));
+		function select(start,end){
+			var total = end-start+1;
+			return Math.floor(Math.random()*total+start);
+		}
+		for(var i = 0;i<10;i++){
+			document.write(select(1,10));
+			document.write("<br>");
+		}
+	</script>
+</body>
+</html>

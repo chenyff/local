@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular过滤器</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="namesCtrl">
+		<p>输入过滤：</p>
+		<p>
+			<input type="text" ng-model="test"/>
+		</p>
+		<ul>
+			<li ng-repeat="mess in list | filter:test | orderBy:'age'">
+				{{(mess.name | uppercase)+','+mess.age}}
+			</li>
+		</ul>
+	</div>
+	<script src="js/guolvqi.js"></script>
+</body>
+</html>

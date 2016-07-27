@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flexbox test</title>
+	<style>
+	     /*一 display*/
+		/*.flex-container{
+			display: flex;   这个值用于产生块级伸缩容器
+			display: inline-flex;  这个值用于产生行内级伸缩容器
+		}*/
+
+		/*二 flex-direction*/
+		/*.flex-container{
+			display: flex;
+			flex-direction: row;   默认为row,所以如果事横向伸缩，就不用写
+			flex-direction: row-reverse;  排版方式从右向左排列
+			flex-direction: column;   排版方式为从上向下排列
+			flex-direction: column-reverse; 排版方式为从下向上排列
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc;
+		}*/
+
+		/*三 flex-wrap*/
+		/*.flex-container{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;  即使空间不足，也不允许换行
+			flex-wrap: wrap;  空间不足的情况下，允许换行
+			flex-wrap: wrap-reverse; 换行方向为从下到上
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc; 
+		}*/
+
+		/*四 flex-flow */
+		/*.flex-container{
+			display: flex;
+			flex-flow: row-reverse wrap-reverse;  该属性是flex-direction和flex-wrap属性的缩写版本，默认值为row nowrap
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc;
+		}*/
+
+		/*五 justify-content*/
+		/*.flex-container{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;  伸缩项目向主轴线的起始位置靠齐 我觉得这个就像是float：left
+			justify-content: flex-end;   伸缩项目向主轴线的结束位置靠齐
+			justify-content: center;  伸缩项目向主轴线的中间位置靠齐
+			justify-content: space-between; 伸缩项目会平均的分布在主轴线里，第一个伸缩项目在开始位置，最后一个在重点位置
+			justify-content: space-around; 伸缩项目会平均的分布在主轴线里，两端保留一半的空间。
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc;
+		}*/
+
+		/*六 align-items*/
+		/*.flex-container{
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;  伸缩项目向交叉轴的起始位置靠齐
+			align-items: flex-end;  伸缩项目向交叉轴的结束位置靠齐
+			align-items: center;  伸缩项目向交叉轴的中间位置靠齐
+			align-items: baseline;  伸缩项目根据它们的基线对齐。
+			align-items: stretch;   伸缩项目会在交叉轴方向拉伸填充整个伸缩器
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc;
+		}
+		.flex-item{
+			display: block;
+			width: 50px;
+			background: #000;
+			color: #fff;
+		}*/
+
+		/*七 align-content*/
+		.flex-container{
+			display: flex;
+			flex-direction: row;
+			width: 200px;
+			height: 150px;
+			border: 1px solid #ccc;
+			flex-wrap: wrap;
+			/*align-content: flex-start;  伸缩项目向交叉轴的起始位置靠齐*/
+			/*align-content: flex-end;  伸缩项目向交叉轴的结束位置靠齐*/
+			/*align-content: center;  伸缩项目向交叉轴的中间位置靠齐*/
+			/*align-content: space-between;  伸缩项目在交叉轴中平均分布*/
+			/*align-content: space-around; 伸缩项目在交叉轴中平均分布，且在两边各有一半的空间*/
+			align-content: stretch; 伸缩项目将会在
+			
+		}
+		.flex-item{
+			display: block;
+			width: 50px;
+			height: 50px;
+			background: #000;
+			color: #fff;
+		}
+		/*#items1{
+			padding-top: 15px;
+		}
+		#items2{
+			padding-top: 10px;
+		}
+		#items3{
+			padding-top: 5px;
+		}*/
+	</style>
+</head>
+<body>
+	<!-- 一 display -->
+	<!-- <span class="flex-container"></span> -->
+
+	<!-- 二 flex-direction -->
+	<!-- <span class="flex-container">
+		<span class="flex-item">1</span>
+		<span class="flex-item">2</span>
+		<span class="flex-item">3</span>
+	</span> -->
+	<!-- 三 flex-wrap  -->
+	<!-- <span class="flex-container">
+		<span class="flex-item">1</span>
+		<span class="flex-item">2</span>
+		<span class="flex-item">3</span>
+		<span class="flex-item">4</span>
+		<span class="flex-item">5</span>
+	</span> -->
+
+	<!-- 四 flex-flow  -->
+	<!-- <span class="flex-container">
+		<span class="flex-item">1</span>
+		<span class="flex-item">2</span>
+		<span class="flex-item">3</span>
+		<span class="flex-item">4</span>
+		<span class="flex-item">5</span>
+	</span> -->
+
+	<!-- 五 justify-content  -->
+	<!-- <span class="flex-container">
+		<span class="flex-item">1</span>
+		<span class="flex-item">2</span>
+		<span class="flex-item">3</span>
+	</span> -->
+
+	<!-- 六 align-items  -->
+	<!-- <span class="flex-container">
+		<span class="flex-item" id="items1">1</span>
+		<span class="flex-item" id="items2">2</span>
+		<span class="flex-item" id="items3">3</span>
+	</span> -->
+
+	<!-- 四 flex-flow  -->
+	<span class="flex-container">
+		<span class="flex-item">1</span>
+		<span class="flex-item">2</span>
+		<span class="flex-item">3</span>
+		<span class="flex-item">4</span>
+		<span class="flex-item">5</span>
+	</span>
+</body>
+</html>
