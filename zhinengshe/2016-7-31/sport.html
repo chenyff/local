@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动</title>
+	<style>
+		#div1{
+			width: 200px;height: 200px;background: red;position: absolute;left: 50px;top: 50px;
+		}
+	</style>
+	<script>
+		setInterval(function(){
+			var dd = document.getElementById('div1');
+			dd.style.left = dd.offsetLeft+10+'px';
+		},300)
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
