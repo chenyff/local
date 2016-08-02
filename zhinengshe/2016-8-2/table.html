@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table各行换色</title>
+	<script>
+		window.onload = function(){
+			var tt = document.getElementById('tab1');
+			//隔行换色的代码
+			/*var oldColor = "";
+			for(var i = 0;i<tt.tBodies[0].rows.length;i++){
+				tt.tBodies[0].rows[i].onmouseover = function(){
+				   oldColor = this.style.background;
+				   this.style.background = 'green';
+			    };
+			    tt.tBodies[0].rows[i].onmouseout = function(){
+				   this.style.background = oldColor;
+			    };
+				if(i%2 == 0){
+					tt.tBodies[0].rows[i].style.background = "#ccc";
+				}else{
+					tt.tBodies[0].rows[i].style.background = "#bbb";
+				}
+			}*/
+			//添加信息的代码
+			var name = document.getElementById('name');
+			var age = document.getElementById('age');
+			var btn = document.getElementById('addMess');
+			var bum = tt.tBodies[0].rows.length+1;
+			btn.onclick = function(){
+				var oTr = document.createElement('tr');
+				var oTd = document.createElement('td');
+				oTd.innerHTML = bum++;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = name.value;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = age.value;
+				oTr.appendChild(oTd);
+
+				var oTd = document.createElement('td');
+				oTd.innerHTML = '<a href="javascript:;">删除</a>';
+				oTr.appendChild(oTd);
+
+				oTd.getElementsByTagName('a')[0].onclick = function(){
+					tt.tBodies[0].removeChild(this.parentNode.parentNode);
+				}
+				tt.tBodies[0].appendChild(oTr);
+			}
+
+		}
+	</script>
+</head>
+<body>
+姓名：<input type="text" id="name"/>
+年龄：<input type="text" id="age"/>
+<input type="button" value="添加" id="addMess"/>
+	<table id="tab1" border="1" width="500">
+	    <thead>
+	    	<tr>
+	    		<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+	    	</tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>陈宇飞</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>陈宇飞</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>陈宇飞</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>陈宇飞</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>陈宇飞</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
