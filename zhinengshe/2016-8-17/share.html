@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分享到</title>
+	<style>
+		#shareCon{
+			width: 150px;height: 200px;position: absolute;background: #000;left: -150px;
+		}
+		#shareBtn{
+			position: absolute;width: 20px;height: 70px;line-height: 20px;background: blue;right: -20px;top: 70px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv = document.getElementById("shareCon");
+			oDiv.onmouseover = function(){
+				startmove(0);
+			};
+			oDiv.onmouseout = function(){
+				startmove(-150);
+			}
+		}
+		var timer = null;
+		function startmove(target){
+			var oDiv = document.getElementById("shareCon");
+			clearInterval(timer);
+			timer = setInterval(function(){
+				var speed = 0;
+				if(oDiv.offsetLeft > target){
+					speed = -10;
+				}else{
+					speed = 10;
+				}
+				if(oDiv.offsetLeft == target){
+					clearInterval(timer);
+				}else{
+					oDiv.style.left = oDiv.offsetLeft+speed+'px';
+				}
+			}, 30)
+		}
+	</script>
+</head>
+<body>
+	<div id="shareCon">
+		<span id="shareBtn">分享到</span>
+	</div>
+</body>
+</html>
