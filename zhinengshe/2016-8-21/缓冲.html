@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓冲运动</title>
+	<style>
+		#div1{
+			height: 200px;width: 200px;background: red;position: absolute;top: 50px;left: 500px;
+		}
+		#div2{
+			height: 400px;width: 1px;background: #000;position: absolute;left: 300px;top: 0;
+		}
+	</style>
+	<script>
+		function startmove(){
+			var oDiv = document.getElementById('div1');
+			setInterval(function(){
+				var speed = (300 - oDiv.offsetLeft)/10;
+				speed = speed>0?Math.ceil(speed):Math.floor(speed);
+				oDiv.style.left = oDiv.offsetLeft+speed+'px';
+
+			}, 30)
+		}
+
+	</script>
+</head>
+<body>
+    <button onclick="startmove()">开始运动</button>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

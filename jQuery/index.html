@@ -2,10 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>jquery</title>
+	<title>弹框提示</title>
+    <style>
+    *{
+    	margin: 0;padding: 0;
+    }
+        .zhe{
+        	width: 100%;height: 100%;position: fixed;top: 0;left: 0;
+        	background: #000;
+        	display : flex ;
+			justify-content : center ;
+			align-items : center ;
+			filter: alpha(opacity:30);
+			opacity: 0.3;
+        }
+    	.blog{
+    		width: 400px;height: 200px;background: #fff;text-align: center;
+    	}
+    	.blog h2{
+    		height: 30px;background: #253036;line-height: 30px;font-size: 18px;color: #fff;
+    	}
+    	.op_title{
+    		font-size: 24px;color: #253036;margin-top: 50px;display: block;
+    	}
+    </style>
 	<script src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(document).on("click",".btn",function(){
+				var newhtml = '<div class="zhe">';
+				newhtml += '<div class="blog">';
+				newhtml += '<h2>操作提示</h2>';
+				newhtml += '<span class="op_title">操作成功</span>'
+				newhtml += '</div></div>'
+				$("body").append(newhtml);
+			});
+			$(document).on("click",".zhe",function(){
+				$(".zhe").hide();
+			})
+		})
+	</script>
 </head>
 <body>
-	
+   <button class="btn">点击我</button>
+
 </body>
 </html>
