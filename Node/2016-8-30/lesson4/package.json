@@ -1,0 +1,16 @@
+{
+  "name": "yu",
+  "version": "1.0.2",
+  "description": "this is my di san ge test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cyf",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "eventproxy": "^0.3.5",
+    "superagent": "^2.2.0"
+  }
+}
