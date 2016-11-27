@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style>
+		div{
+			height: 200px;width: 200px;
+			border:1px solid #f00;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.querySelectorAll("input");
+			var box = document.querySelectorAll("div");
+			for(var i = 0;i<btn.length;i++){
+				btn[i].index = i;
+				btn[i].onclick = function(){
+					for(var i=0;i<btn.length;i++){
+						btn[i].style.background = "";
+						box[i].style.display = "none";
+					}
+					this.style.background = "#f00";
+					box[this.index].style.display = "block";
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" style="background:#f00;"／>
+	<input type="button" value="按钮2"／>
+	<input type="button" value="按钮3"／>
+	<div style="display:block;">1</div>
+	<div>2</div>
+	<div>3</div>
+</body>
+</html>

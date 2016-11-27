@@ -26,3 +26,18 @@ function getStyle(element,attr){
 function hasClass(element,className){
 	return element.className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'));
 }
+
+//获取event对象
+function getEvent(event){
+	return event || window.event;
+}
+
+//阻止默认行为
+function preDe(event){
+	var e = getEvent(event);
+	if(typeof e.preventDefault != 'undefined'){
+		e.preventDefault();
+	}else{
+		e.returnValue = false;
+	}
+}

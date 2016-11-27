@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素跟鼠标移动</title>
+	<style>
+		#dd{
+			width: 200px;height: 200px;background: #ccc;position: absolute;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="dd"></div>
+	<script> 
+		document.onmousemove = function(ev){
+			var oEvent = ev || event;
+			var oDiv = document.getElementById('dd');
+			dd.style.left = oEvent.clientX + 'px';
+			dd.style.top = oEvent.clientY + 'px';
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/*主要内容*/
+header{
+	height: 0.88rem;
+	position: relative;
+	z-index: 20;
+}
+.header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #2b2e33;
+	height: 0.88rem;
+}
+.logo , .logo img{
+	width: 1.86rem;
+	height: 0.56rem;
+	position: absolute;
+	top: 50%;
+	margin-top: -0.28rem;
+	left: 0.07rem;
+}
+.history,.search{
+	display: block;
+	width: 0.6rem;
+	height: 0.6rem;
+	float: right;
+	margin-right: 0.1rem;
+}

@@ -164,12 +164,58 @@ Base.prototype.lock = function(){
 		this.elements[i].style.width = getInner().width+'px';
 		this.elements[i].style.height = getInner().height+'px';
 		this.elements[i].style.display = 'block';
+		document.documentElement.style.overflow = 'hidden';
 	}
 	return this;
 }
 Base.prototype.unlock = function(){
 	for(var i = 0;i<this.elements.length;i++){
 		this.elements[i].style.display = 'none';
+		document.documentElement.style.overflow = 'none';
+	}
+	return this;
+}
+
+//拖拽功能
+Base.prototype.drag = function(){
+	for(var i = 0;i<this.elements.length;i++){
+		this.elements[i].onmousedown = function(e){
+			preDe(e);//阻止默认行为 低版本的火狐
+			var e = getEvent(e);
+			var _this = this;
+			var diffx = e.clientX - _this.offsetLeft;
+			var diffy = e.clientY - _this.offsetTop;
+			if(typeof _this.setCapture != 'undefined'){
+				_this.setCapture();
+			}
+		
+			document.onmousemove = function(e){
+				var e = getEvent(e);
+				var left = e.clientX - diffx;
+				var top = e.clientY - diffy;
+				if(left<0){
+					left = 0;
+				}else if(left > getInner().width - _this.offsetWidth){
+					left = getInner().width - _this.offsetWidth;
+				}
+				if(top<0){
+					top = 0;
+				}else if(top > getInner().height - _this.offsetHeight){
+					top = getInner().height - _this.offsetHeight;
+				}
+				_this.style.left = left + 'px';
+				_this.style.top = top + 'px';
+
+			};
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				if(typeof _this.releaseCapture != 'undefined'){
+					_this.releaseCapture();
+				}
+			}
+			
+		}
 	}
 	return this;
 }
