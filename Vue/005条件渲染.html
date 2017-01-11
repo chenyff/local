@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件渲染</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1 v-if="chen">123123</h1>
+		<template v-if="ok">
+			<h1>111</h1>
+			<h2>222</h2>
+			<h3>333</h3>
+		</template>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				//chen:true
+				chen:false,
+				ok:false
+			}
+		})
+	</script>
+</body>
+</html>

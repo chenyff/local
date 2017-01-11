@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class与style绑定</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:class="{active:isActive,'text-danger':danger}">aaa</div>
+		<div v-bind:class="classObject"></div>
+		<div v-bind:class="[ischen,isyu]"></div>
+		<div v-bind:class="[isActive?ischen:isyu]"></div>	
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				isActive:false,
+				danger:false,
+				classObject:{
+					chen:true,
+					yu:false
+				},
+				ischen:'chenyufei',
+				isyu:'guanne'
+			}
+		});
+	</script>
+</body>
+</html>

@@ -2,17 +2,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>vue入门</title>
+		<title>vue练习</title>
+		<script src="vue.js"></script>
 	</head>
 	<body>
 		<div id="app">
 			{{message}}
 		</div>
 		<div id="app2">
-			<p v-bind:title="title">我叫陈宇飞</p>
+			<span v-bind:title='message'>
+				你猜我在干嘛
+			</span>
 		</div>
 		<div id="app3">
-			<p v-if="seen">If you see me</p>
+			<p v-if='seen'>你能看见我么？</p>
 		</div>
 		<div id="app4">
 			<ul>
@@ -23,29 +26,29 @@
 		</div>
 		<div id="app5">
 			<p>{{message}}</p>
-			<button v-on:click="tan">点我点我</button>
+			<button v-on:click = 'reverseMessage'>点击我</button>
 		</div>
 		<div id="app6">
 			<p>{{message}}</p>
 			<input type="text" v-model="message" />
 		</div>
-		<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var app = new Vue({
 				el:'#app',
 				data:{
-					message:"陈宇飞"
+					message:'hello 陈宇飞'
 				}
 			});
 			var app2 = new Vue({
 				el:'#app2',
 				data:{
-					title:"今年23岁"
+					message:'我觉得你在学习，现在时间是'+new Date()
 				}
 			});
 			var app3 = new Vue({
 				el:'#app3',
 				data:{
+//					seen:true
 					seen:false
 				}
 			});
@@ -53,30 +56,29 @@
 				el:'#app4',
 				data:{
 					list:[
-						{text:'chen'},
-						{text:'yu'},
-						{text:'fei'}
+					   {text:'javascript'},
+					   {text:'jquery'},
+					   {text:'angular'}
 					]
 				}
 			});
 			var app5 = new Vue({
 				el:'#app5',
 				data:{
-					message:"点个屁啊点"
+					message:'陈宇飞'
 				},
 				methods:{
-					tan:function(){
-						this.message = this.message.split("").join("_");
+					reverseMessage:function(){
+						this.message = this.message.split('').reverse().join('');
 					}
 				}
 			});
 			var app6 = new Vue({
-				el:'#app6',
+				el:"#app6",
 				data:{
 					message:"chenyufei"
 				}
 			})
-			
 		</script>
 	</body>
 </html>
