@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义配置对接地址添加</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	<style>
+		span{
+		   line-height:30px;
+		   display: inline-block;
+		   width: 280px;
+		}
+		.ii{
+		   width:300px;
+		}
+		.formMess{
+			margin:40 auto; 
+			border:solid #000 1px; 
+			width:50%
+		}
+		.formMess label{
+			display: block;
+		}
+		.subBtn{
+			width: 100px;
+			display: block;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post">
+		  <div class="formMess">
+		  <label>
+		  	    <span>包含的部分url(如le.com判断为乐视):</span>
+		  	    <input type="text" name="aurl" class="ii"/>
+		  </label>
+		  <label>
+		  	    <span>视频类型参数为(类型等于letv这样写):</span>
+		  	    <input type="text" name="atype" class="ii"/>
+		  </label>
+		  <label>
+		  		<span style="vertical-align:top;">请求第三方地址: </span>
+		  		<textarea rows="10" cols="47" name="requestapi">http://ckflv.vivcms.com/newparse?uid=这里写uid&token=这里配置token&url={url}&type={type}&hd={hd}&wap={wap} 
+		  
+		  
+		  其他参数自己加，程序动态参数只有四个其他都是配置死的</textarea>
+		  </label>
+		  <label>
+		  	<input type="submit" value="提交" class="subBtn">
+		  </label>
+		  
+		  
+		  
+		  </div>
+    </form>
+
+</body>
+</html>

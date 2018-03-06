@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>面向对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//老版
+			/*function User(name,pass){
+				this.name = name;
+				this.pass = pass;
+			}
+			User.prototype.showName = function(){
+				alert(this.name);
+			};
+			User.prototype.showPass = function(){
+				alert(this.pass);
+			};
+			var u1 = new User('chenyufei','chen1234');
+			u1.showName();u1.showPass();*/
+			//新版
+			class User{
+				constructor(name,pass){
+					this.name = name;
+					this.pass = pass;
+				}
+				showName(){
+					alert(this.name);
+				}
+				showPass(){
+					alert(this.pass);
+				}
+			}
+			//继承
+			class VipUser extends User{
+				constructor(name,pass,level){
+					super(name,pass);
+					this.level = level;
+				}
+				showLevel(){
+					alert(this.level);
+				}
+			}
+			var u1 = new User('chenyufei','chen1234');
+			var v1 = new VipUser('chenyufei','chen1202',23);
+			//u1.showName();
+			//u1.showPass();
+			v1.showName();
+			v1.showPass();
+			v1.showLevel()
+		</script>
+	</body>
+</html>

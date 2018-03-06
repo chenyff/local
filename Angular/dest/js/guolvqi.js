@@ -1,1 +1,0 @@
-var app=angular.module("myApp",[]);app.controller("namesCtrl",function(a){a.list=[{name:"aaa",age:"linfen"},{name:"bbb",age:"taiyuan"},{name:"ccc",age:"pingyao"}]});
