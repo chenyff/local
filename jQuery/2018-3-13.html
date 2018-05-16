@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery动画</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <style>
+        .button{
+            height: 20px;
+            width: 50px;
+        }
+        .move{
+            width: 100px;
+            height: 100px;
+            background: #666;
+            margin-top: 10px;
+            position: relative;
+        }
+        .question,.answer{
+            width: 300px;
+            height: 50px;
+            background: #999;
+            line-height: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <pre style="display:none;">
+         jQuery 中的动画 animate() 
+         语法：$(selector).animate({params},speed,callback); 
+         params 必填参数 定义形成动画的css属性 
+         speed 可选参数 规定效果的时长，他可以取以下值“slow”、“fast”或毫秒 
+         callback可选参数 参数是完成动画后所执行的函数名称 
+         如果把div元素移动到左边，直到left的值等于250为止 
+         $("button").click(function(){ 
+             $("div").animate({left:'250px'});
+         }); 
+         如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！
+
+         jquery animate  操作多个属性
+         $("button").click(function(){ 
+             $("div").animate({ 
+                 left:'250px', 
+                 opacity:'0.5', 
+                 height:'150px', 
+                 width:'150px' 
+            }); 
+         });
+         注意：animate并不是可以操作所有属性，色彩动画并不包含在内，同时，像margin-left或者padding-top这样的属性，
+         必须改成marginLeft或者paddingTop这种
+         只有数字值可创建动画（比如 "margin:30px"）。字符串值无法创建动画（比如 "background-color:red"）
+
+         滑动 
+         slideDown()和slideUp()的应用 
+         slideToggle()显示隐藏切换 淡入淡出 
+         fadeIn()和fadeOut()的应用 
+         fadeToggle()显示隐藏切换 
+         设定透明度fadeTo()的应用 
+         自定义动画 
+         animate()自定义动画函数
+         animate()实现show(),hide()，toggle()方法 判断动画是否处于动画状态：animated stop()停止函数 delay()方法的应用
+
+         jQuery stop() 方法 jQuery stop() 方法用于停止动画或效果，在它们完成之前。 
+         stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。
+
+    </pre>
+    <button class="start">移动</button>
+    <button class="stop">停止</button>
+    <div class="move">我要移动啦</div>
+
+    <hr/>
+    <button class="showQues">展开问题</button>
+    <div class="question">
+        Q:周末去哪里啊
+    </div>
+    <div class="answer">
+        A:哪里也不去，在家学习
+    </div>
+    <script>
+        /*
+        ///animate动画效果
+        $(".start").on("click", function () {
+                    $(".move").animate({ left: "100px", width: "200px"},800,function(){
+                        alert("执行完了");
+                    })
+        })
+        ///animate操作多个属性
+        $(".start").click(function(){
+             $(".move").animate({
+                 left:'250px',
+                 opacity:'0.5',
+                 height:'150px',
+                 width:'150px'
+            });
+         });
+         ///animate使用相对值
+         $(".start").click(function () {
+                $(".move").animate({
+                    left: '250px',
+                    height: '+=100px',
+                    width: '+=100px'
+                });
+          });
+          ///animate使用预定义值
+          //展示   分为有参与无参 
+          //无参 默认时间为400ms
+          $(".start").click(function () {
+                $(".move").show();  //展示
+          });
+          //有参数
+          $(".start").click(function () {
+                $(".move").show(400,function(){
+                    alert("我执行完了")
+                });  //展示
+           });
+         ///hide同上
+         ///toggle 隐藏或显示元素
+         ///animate使用队列功能
+         如果你想在这个动画完事以后再执行另外一种变化，则需要队列功能
+         $(".start").click(function () {
+            var box = $(".move");
+            box.animate({ height: '300px', opacity: '0.4' }, "slow");
+            box.animate({ width: '300px', opacity: '0.8' }, "slow");
+            box.animate({ height: '100px', opacity: '0.4' }, "slow");
+            box.animate({ width: '100px', opacity: '0.8' }, "slow");
+        });
+        //还可以改变字体大小
+        $(".start").click(function () {
+                var box = $(".move");
+                box.animate({ left: '100px' }, "slow");
+                box.animate({ fontSize: '18px' }, "slow");
+        });
+
+        ///////滑动出滑动消失
+        $(".start").click(function(){
+             $(".move").slideDown();  向下滑动展示
+             $(".move").slideUp();    向上滑动隐藏
+             $(".move").slideToggle();  隐藏或消失
+        })
+        //////淡入淡出
+        $(".start").click(function(){
+             $(".move").fadeIn();    淡入已经隐藏的元素
+             $(".move").fadeOut();   淡出可见元素
+             (".move").fadeToggle(); 在 fadeIn() 与 fadeOut() 方法之间进行切换，
+             如果元素已淡出，则 fadeToggle() 会向元素添加淡入效果。
+             如果元素已淡入，则 fadeToggle() 会向元素添加淡出效果。
+             $(selector).fadeTo(speed,opacity,callback);
+             $(".move").fadeTo("slow",0.5);
+        })
+
+        //////stop
+        $(".start").click(function(){
+             $(".move").slideUp(5000);
+        })
+        $(".stop").click(function(){
+            $(".move").stop();
+        })
+        ///////callback
+        $(".showQues").click(function(){
+             $(".question").slideDown(2000,function(){
+                $(".answer").slideDown(1000);
+             });
+        })
+        ////delay
+        $(".start").click(function () {
+                $(".move").delay(2000).slideUp();
+        })
+        ///////easing
+        1.linear 2.swing 3.easeInQuad 4.easeOutQuad 5.easeInOutQuad 6.easeInCubic 7.easeOutCubic
+        8.easeInOutCubic 9.easeInQuart 10.easeOutQuart 11.easeInOutQuart 12.easeInQuint 13.easeOutQuint
+        14.easeInOutQuint 15.easeInExpo  16.easeOutExpo 17.easeInOutExpo 18.easeInSine 19.easeOutSine
+        20.easeInOutSine 21.easeInCirc  22.easeOutCirc 23.easeInOutCirc 24.easeInElastic 25.easeOutElastic
+        26.easeInOutElastic 27.easeInBack 28.easeOutBack 29.easeInOutBack 30.easeInBounce 31.easeOutBounce 
+        32.easeInOutBounce
+        $(".start").click(function () {
+                $(".move").animate({left:'200px'},1000,"easeOutBounce",function(){
+                    alert("It's over");
+                });  //展示
+            });
+
+        */
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>组件-全局组件及局部组件</title>
+		<script src="../lib/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.like{
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<like></like>
+		</div>
+		<template id="like_box">
+			<button :class="{like:liked}" @click="clickme()">👍{{like_count}}</button>
+		</template>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
