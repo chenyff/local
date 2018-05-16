@@ -8,17 +8,20 @@ Vue.component('parent',{
 	template:
 	`<div>
 	    <child @showm="showFn"></child>
-	    <div v-if="showbu">现有余额:5元</div>	
+	    <div v-if="showbu">现有余额:{{money}}元</div>	
 	 </div>
 	`,
 	data:function(){
 		return {
-			showbu : false
+			showbu : false,
+			money:null
 		}
 	},
 	methods:{
 		showFn:function(data){
 			console.log(data);
+			this.showbu = true;
+			this.money = data.a;
 		}
 	}
 });
