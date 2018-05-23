@@ -103,6 +103,15 @@ console.log(片儿); // ["a", "b", "c"]
 // 从第2格开始剪，剪1格，进两个广告
 片儿.splice(1, 1, '广告1', '广告2');
 console.log(片儿); // ["a", "广告1", "广告2", "c"]
+//删除
+
+
+
+数组转字符串
+var arr = ['blue','red','black'];
+arr.join("-");
+
+
 
 .forEach(回调函数) 迭代
 ['a', 'b', 'c'].forEach(function(每一条, 索引) { 
@@ -112,6 +121,9 @@ console.log(片儿); // ["a", "广告1", "广告2", "c"]
 // 第0条：a
 // 第1条：b
 // 第2条：c
+
+
+
 
 .filter(回调函数) 过滤器
 通过你给他的条件返回一个新数组
@@ -149,3 +161,11 @@ var passed = [12, 5, 8, 130, 44].every(isBigEnough);
 // passed is false
 passed = [12, 54, 18, 130, 44].every(isBigEnough);
 // passed is true
+
+some()：判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true。
+function jige(){
+	return x < 3;
+}
+var aa = [12, 5, 8, 130, 44].some(jige);
+console.log(aa);
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 语法
+			 * 1.substring(start,end)
+			 * 用于提取字符串中介于两个指定下标之间的字符串，返回新的字符串，不操作原字符串
+			 * 2.substr(start,length);
+			 * 返回一个从指定位置开始的指定长度的字符串,返回新的字符串，不操作原字符串
+			 * 3.split('标准')
+			 * 字符串切割成数组形式，不操作原字符串
+			 * 4.toLowerCase()全部转化为小写
+			 * 5.toUpperCase()全部转化为大写
+			 * 6.indexOf方法和lastIndexOf方法都是从一个字符串中搜索给定的子字符串，然后返回子字符串的位置，如果没有找到，则返回-1 
+       			indexOf方法是从字符串的开头向后搜索子字符串，lastIndexOf方法正好相反 
+    				这两个方法都可以接收两个参数：要查找的子字符串和查找的位置
+    			 * 7.replace方法 替换
+    			 *  var str="cat,bat,sat,fat"; 
+    				var res=str.replace("at","one");//第一个参数是字符串，所以只会替换第一个子字符串 
+    				console.log(res);//cone,bat,sat,fat 
+    			 * 8.split方法
+    			 * str.split(",",2) 第二个参数用来限制数组的大小
+    			 * 阿里面试题
+    			 * var str = "www.taobao.com"; 
+  			 var res = str.split("").reverse().join("").replace('oat','');
+			 * */
+			var str = 'adasfdvdasdasd';
+			var newstr = str.substr(2,4);
+			var newss  = str.substring(2,4); //
+			console.log(str);
+			console.log(newstr);
+			console.log(newss);
+		</script>
+	</body>
+</html>

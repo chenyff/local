@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>金字塔</title>
+		<style type="text/css">
+			span{
+				display: inline-block;
+				width: 15px;
+				height: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.write("听说你们喜欢金字塔<br/>");
+			document.write("给你们正立直角金字塔<br/>");
+			for(var i=0;i<5;i++){
+				for(var j = 0;j<=i;j++){
+					document.write("<span>♥</span>");
+				}
+				
+				document.write("<br/>");
+			}
+			
+			document.write("给你们倒直角金字塔<br/>");
+			for(var i = 5;i>0;i--){
+				for(var j=1;j<=i;j++){
+					document.write("<span>♥</span>");
+				}
+				document.write("<br/>");
+			}
+			document.write("给你们金字塔小星星<br/>");
+			for(var a=1;a<=5;a++){
+				for(var b=1;b<=(5-a);b++){
+					document.write("<span></span>");
+			        }
+
+				for(var c=1;c<=2*a-1;c++){
+					document.write("<span>♥</span>");
+				}
+			document.write("<br/>");
+			}
+			
+			document.write("给你们倒立金字塔小星星<br/>");
+			for(var a=1;a<=5;a++){  
+                for(var b=1;b<=(a-1);b++){  
+                    document.write("<span></span>");  
+                }  
+                for(var c=1;c<=11-2*a;c++){  
+                    document.write("♥");  
+                }  
+            document.write("<br/>");  
+            }  
+		</script>
+	</body>
+</html>

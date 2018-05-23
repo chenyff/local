@@ -25,6 +25,19 @@
 			console.log(arr2); //[1, 4, 7, 8, 9, 10]
 			//index代表数组索引，它的循环过程是这样的，首先传入元素1，它的索引为0，而0%3===0，满足了条件。
     			//第二遍传入了2，索引为1，但1%3！==0，且1比8小，所以被排除，依次循环，得出我们arr2的输出结果。
+    			function isBigEnough(element) {
+			  return (element >= 10);
+			}
+			var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+			console.log(passed);
+			// passed is false
+			//passed = [12, 54, 18, 130, 44].every(isBigEnough);
+			
+			function jige(x){
+				return x > 3;
+			}
+			var aa = [12, 5, 8, 130, 44].some(jige);
+			console.log(aa);
 		</script>
 		<!--<script src="main.js" type="text/javascript" charset="utf-8"></script>-->
 	</body>
