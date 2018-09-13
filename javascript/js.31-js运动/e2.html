@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="startmove">点我开始移动</button>
+    <div id="box"></div>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("startmove");
+            var box = document.getElementById("box");
+            var timer = null;
+            btn.onclick = function () {
+                // timer = setInterval(function () {
+                //     if(box.offsetLeft == 300){
+                //         clearInterval(timer);
+                //     }else{
+                //         box.style.left = box.offsetLeft + 2 + 'px';
+                //     }
+                    
+                // }, 30)
+
+                //换成不被300整除的，但是left不为整数
+                // timer = setInterval(function () {
+                //     if(box.offsetLeft >= 300){
+                //         clearInterval(timer);
+                //     }else{
+                //         box.style.left = box.offsetLeft + 7 + 'px';
+                //     }
+                // }, 30)
+
+                //向上取整
+                timer = setInterval(function () {
+                    if (Math.ceil(box.offsetLeft) == 300) {
+                        clearInterval(timer);
+                    } else {
+                        box.style.left = box.offsetLeft + 7 + 'px';
+                    }
+                }, 30)
+            }
+        }
+        //此时观察left是302  因为定时器是下一次才停止
+        //加一个else
+        //如果当前增加的不是能被300整除的数字就会出问题 所以需要换成>=
+        //这样的话  运动停止 当前left值不是300
+        //向上取整  Math.ceil(3.5)
+        //向下取整  Math.floor(3.5)
+        //多次点击 速度越来越快
+        //清除定时器
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>传参</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <aaa :money="msg"></aaa>
+    <template id="chen">
+        <h1>我难受</h1>
+        <h2>我想买个车--{{car}}</h2>
+        <h3>那你现在有钱么--{{money}}</h3>
+    </template>
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                msg:'没钱'
+            },
+            components:{
+                'aaa':{
+                    // template:'<h1>我难受</h1>'
+                    props:['money'],
+                    data:function(){
+                        return{
+                            car:'新朗逸'
+                        }
+                    },
+                    template:'#chen'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

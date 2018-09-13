@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>局部组件</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+       <button @click="msg='aaa'">aaa</button>
+       <button @click="msg='bbb'">bbb</button>
+       <component :is='msg'></component>
+    </div>
+    <template id="mya">
+        <h1>你好，我是aaa</h1>  
+        <span>{{msg}}</span>  
+    </template> 
+    <template id="myb">
+        <h1>你好，我是bbb</h1>
+    </template>
+   <script>
+       new Vue({
+           el:'#box',
+           data:{
+               msg:'aaa'
+           },
+           components:{
+                aaa:{
+                    data:function(){
+                        return {
+                            msg:'你好，我是大白'
+                        }
+                    },
+                    template:'#mya'
+                },
+                bbb: {
+                   data: function () {
+                       return {
+                           msg: '你好，我是小白'
+                       }
+                   },
+                   template: '#myb'
+               }
+           }
+       })
+   </script>
+</body>
+</html>

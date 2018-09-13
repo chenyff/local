@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动1</title>
+    <style>
+      *{
+          margin:0;
+          padding:0;
+      }
+      #box{
+          width: 200px;
+          height: 200px;
+          background: red;
+          position: absolute;
+          left: 0;
+          top: 50px;
+      }
+    </style>
+</head>
+<body>
+    <button id="startmove">点我开始移动</button>
+    <div id="box"></div>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("startmove");
+            var box = document.getElementById("box");
+            btn.onclick = function(){
+                setInterval(function(){
+                    box.style.left = box.offsetLeft + 2 + 'px';
+                },30)
+                
+            }
+        }
+    </script>
+</body>
+</html>

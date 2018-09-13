@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增加删除</title>
+</head>
+
+<body>
+    <button id="sortBtn">排序</button>
+    <table id="tt" border="1" width="500">
+        <thead>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>操作</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>rain</td>
+                <td>23</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>李四</td>
+                <td>24</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>王五</td>
+                <td>25</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>马六</td>
+                <td>26</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        window.onload = function () {
+            var tablebox = document.getElementById("tt");
+            var sortBtn = document.getElementById("sortBtn");
+            sortBtn.onclick = function () {
+                var newTr = [];
+                for(var i=0;i< tablebox.tBodies[0].rows.length;i++){
+                    newTr[i] = tablebox.tBodies[0].rows[i];
+                }
+                newTr.sort(function(tr1,tr2){
+                    var n1 = parseInt(tr1.cells[0].innerHTML);
+                    var n2 = parseInt(tr2.cells[0].innerHTML);
+                    return n1-n2;
+                });
+                for(var i=0;i<newTr.length;i++){
+                    tablebox.tBodies[0].appendChild(newTr[i]);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

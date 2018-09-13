@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义滚动条</title>
+    <style>
+        #parent{
+            width: 600px;
+            height: 20px;
+            background: #ccc;
+            position: relative;
+            margin:10px auto;
+        }
+        #box{
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #fox{
+            height: 0;
+            width: 0;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="box"></div>
+    </div>
+    <div id="fox"></div>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("box");
+            var parentBox = document.getElementById("parent");
+            var fox = document.getElementById("fox");
+            var disx = 0;
+            oDiv.onmousedown = function (ev) {
+                var oEvent = ev || event;
+                disx = oEvent.clientX - oDiv.offsetLeft;
+                document.onmousemove = function (ev) {
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disx;
+                    if(l<0){
+                        l=0;
+                    }else if(l> parentBox.offsetWidth-oDiv.offsetWidth){
+                        l= parentBox.offsetWidth - oDiv.offsetWidth;
+                    }
+                    oDiv.style.left = l + 'px';
+                    var scale = l/(parentBox.offsetWidth - oDiv.offsetWidth);
+                    
+                    fox.style.width = 400*scale+'px';
+                    fox.style.height = 400*scale+'px';
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+                return false;
+            }
+
+        }
+    </script>
+</body>
+</html>

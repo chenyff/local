@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>截取</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <ul >
+        <li v-for="i in users | orderBy -1">{{i}}</li>
+    </ul>
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                users:[12,34,2,45,5,0,8]
+            }
+        })
+    </script>
+</body>
+</html>

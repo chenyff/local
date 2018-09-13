@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function chen(data){
+             console.log(data);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <ul id="ul">
+
+    </ul>
+    <script>
+        function chen(json){
+            var lis = "";
+            for(var i=0;i<json.s.length;i++){
+                lis+="<li>"+json.s[i]+"</li>"
+            }
+            ul.innerHTML = lis;
+        }
+        input.oninput = function(){
+            var oS = document.createElement("script");
+            oS.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+this.value+"&cb=chen";
+            document.head.appendChild(oS);
+            oS.remove();
+        }
+    </script>
+    <!-- <script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=1&cb=chen"></script> -->
+</body>
+</html>

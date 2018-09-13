@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可视区域</title>
+</head>
+<body style="height:2000px">
+    <button id="btn">点击</button> 
+    <script>
+        window.onload = function(){
+            // console.log('高'+document.documentElement.clientHeight);
+            // console.log('宽'+document.documentElement.clientWidth);
+            var btn = document.getElementById("btn");
+            document.onclick = function(){
+                // console.log(document.documentElement.scrollTop);
+                console.log(document.body.scrollTop);
+            }
+        }
+    </script>
+</body>
+</html>

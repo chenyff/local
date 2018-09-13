@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实例1</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    {{msg}}
+    <button @click="changeCon">改动内容</button>
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                msg:"有天我睡醒发现我的身边没有你"
+            },
+            methods:{
+                changeCon:function(){
+                    this.msg = "在我的右手边是你最喜欢的玩具"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

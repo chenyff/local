@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <chen></chen>
+    <template id="aaa">
+        <h1>我是父级的数据=>{{msg}}</h1>
+        <h2>我是拿到的孙子级的数据=>{{msg2}}</h2>
+        <yu @child-msg='getmsg'></yu>
+    </template>
+    <template id="bbb">
+        <h1>我是孙子级的数据=>{{msg}}</h1>
+        <button @click="emited">点我</button>
+    </template>
+    <script>
+        new Vue({
+            el:'body',
+            components:{
+                'chen':{
+                    methods:{
+                        getmsg:function(msg){
+                            this.msg2 = msg;
+                        }
+                    },
+                    data:function(){
+                        return {
+                            msg:'你不要吃兔兔',
+                            msg2:''
+                        }
+                    },
+                    template:'#aaa',
+                    components:{
+                        'yu':{
+                            methods:{
+                                emited:function(){
+                                    this.$emit('child-msg',this.msg)
+                                }
+                            },
+                            template:'#bbb',
+                            data:function(){
+                                return {
+                                    msg:'兔兔那么可爱'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

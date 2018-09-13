@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>局部组件</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <c></c>
+    </div>
+   <script>
+       new Vue({
+           el:'#box',
+           components:{
+               'c':{
+                   data:function(){
+                       return{
+                           msg:'你好，我是大白'
+                       }
+                   },
+                   methods:{
+                      change:function(){
+                          this.msg = '您的私人健康顾问';
+                      }
+                   },
+                   template:`<h1>《超能陆战队》中我最喜欢</h1>
+                      <h2>{{msg}}</h2>
+                      <button @click="change">还有</button>`
+               }
+           }
+       })
+   </script>
+</body>
+</html>

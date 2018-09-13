@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <script src="vue.min.js"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+</head>
+<body>
+    用户名：<input type="text" v-model="user"><br/>
+    密码：<input type="password" v-model="password"><br/>
+    <input type="button" value="提交" @click="login">
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                user:"",
+                password:""
+            },
+            methods:{
+                login:function(){
+                    this.$http.get('http://localhost:2133/getPost',{
+                        params:{
+                            user:this.user,
+                            password:this.password
+                        }
+                    }).then(function(data){
+
+                    },function(){
+
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

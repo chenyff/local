@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue动画</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+      div{
+          width: 200px;
+          height: 200px;
+          background: #000;
+      }
+      .chen-transition{
+          opacity: 1;
+          transition: 1.3s;
+          transform: translate(0,0);
+          
+      }
+      .chen-leave{
+          opacity: 0;
+          transform: translateX(90px);
+          background: green;
+      }
+      .chen-enter{
+          opacity: 0;
+          transform: translateY(90px);
+      }
+    </style>
+</head>
+<body>
+    <button @click="changed">动起来</button>
+    <div v-show="show"  transition="chen"></div>
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                show:true
+            },
+            methods:{
+                changed:function(){
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

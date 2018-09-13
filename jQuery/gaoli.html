@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+        <input type="text">
+        <input type="text" checked="checked">
+        <a href="#" id="aaa"></a>
+    <script>
+        console.log($(".box input:not(:checked)"))
+        //$(".box").data('username','高丽');
+        //上面这种写法就相当于原生的.setAttribute('username','高丽')
+       // console.log($(".box").data('username'));
+        //上面这种写法就相当于原生的.getAttribute('username')
+    </script>
+</body>
+</html>

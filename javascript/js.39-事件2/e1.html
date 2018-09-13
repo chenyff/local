@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>attchEvent</title>
+</head>
+<body>
+    <button id="btn">我是按钮</button>
+    <button id="removebtn">解除事件绑定</button>
+    <script>
+        function myAddEvent(obj,ev,fn){
+            if(obj.attchEvent){
+                obj.attchEvent('on'+ev,fn);
+            }else{
+                obj.addEventListener(ev,fn);
+            }
+        }
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            var removebtn = document.getElementById("removebtn");
+            
+            //removebtn.removeEventListener('click',aaa)
+
+            myAddEvent(btn,'click', aaa);
+            myAddEvent(removebtn,'click', bbb);
+            // myAddEvent(btn, 'click', function () {
+            //     alert(2);
+            // })
+            function aaa(){
+                alert(123);
+            }
+            function bbb(){
+                btn.removeEventListener('click', aaa)
+            }
+            // btn.addEventListener('click',function(){
+            //     alert(1);
+            // });
+            // btn.addEventListener('click', function () {
+            //     alert(2);
+            // });
+
+            /*btn.attchEvent("onclick",function(){
+                alert(123);
+            });
+            btn.attchEvent("onclick", function () {
+                alert(333);
+            });*/
+
+
+            // btn.onclick = function(){
+            //     alert(1);
+            // }
+            // btn.onclick = function () {
+            //     alert(2);
+            // }
+        }
+        //同一个元素绑同样的事件会抵消，通过使用attchEvent来解决，但是只在IE下好使
+    </script>
+</body>
+</html>

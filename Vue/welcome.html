@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      alert('欢迎光临');
+      var ask = prompt('先生，吃饭还是住店');
+      if(ask == "吃饭"){
+            var eat = prompt("先生几位");
+            if(eat > 5){
+                alert("先生，包间请");
+            }else{
+                alert("先生，大厅就坐");
+            }
+      }else if(ask == "住店"){
+            var hotel = prompt("请问单人间还是双人间？");
+            if(hotel == "单人" || hotel == "单人间"){
+                alert("您的房间是208");
+            }else if(hotel == "双人" || hotel == "双人间" || hotel == 2){
+                alert("您好，请提示身份证");
+            }
+      }else{
+            alert("本店暂无此服务");
+      }
+
+
+
+
+
+    </script>
+</body>
+</html>

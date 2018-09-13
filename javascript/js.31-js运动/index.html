@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动基础</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="moveBtn">开始运动</button>
+    <div id="box"></div>
+    <script>
+        window.onload = function(){
+            var moveBtn = document.getElementById("moveBtn");
+            var timer = null;
+            var speed = 10;
+            moveBtn.onclick = function () {
+                var oDiv = document.getElementById("box");
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if(oDiv.offsetLeft >= 300){
+                        clearInterval(timer);
+                    }else{
+                        oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }
+                   
+                }, 100)
+            }
+        }
+            
+        
+    </script>
+</body>
+</html>

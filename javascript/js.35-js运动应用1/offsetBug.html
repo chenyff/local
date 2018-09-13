@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>offset bug</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name]
+            }else{
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        window.onload = function(){
+            
+            setInterval(function(){
+                var box = document.getElementById("box");
+                //box.style.width = box.offsetWidth-1+'px';
+                box.style.width = parseInt(getStyle(box,'width'))-1+'px';                
+            },30)
+        }
+        /*
+                         201
+        box.style.width = box.offsetWidth-1+'px';
+        
+        
+        203-1 202
+        惹不起，躲得起，把样式加到行内，然后parseInt获取
+        之前的方法
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+node安装完以后又一个包管理器，叫npm
+npm有个方法叫install
+首先安装bower管理器
+执行   npm install bower -g

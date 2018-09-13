@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿flash图片展示</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="move.js"></script>
+</head>
+<body>
+  <div id="playimage" class="play">
+  	<ul class="big_pic">
+  		<div class="prev"><</div>
+  		<div class="next">></div>
+  		<div class="text">加载图片说明</div>
+  		<div class="length">计算图片数量</div>
+  		<a href="javascript:;" class="mark_left"></a>
+  		<a href="javascript:;" class="mark_right"></a>
+  		<div class="bg"></div>
+  		<li style="z-index:1"><img src="imgs/P_003.jpg"></li>
+  		<li><img src="imgs/P_011.jpg" alt=""></li>
+  		<li><img src="imgs/P_013.jpg" alt=""></li>
+  		<li><img src="imgs/P_016.jpg" alt=""></li>
+	  </ul>
+	  <div class="small_pic">
+		  <ul style="width:390px;">
+			<li style="filter:100;opacity:1;">
+				<img src="imgs/P_003.jpg">
+			</li>
+			<li>
+				<img src="imgs/P_011.jpg" alt="">
+			</li>
+			<li>
+				<img src="imgs/P_013.jpg" alt="">
+			</li>
+			<li>
+				<img src="imgs/P_016.jpg" alt="">
+			</li>
+		  </ul>
+	  </div>
+  </div>
+  <script>
+	  function getByClass(oParent,sclass){
+		  var aEle = oParent.getElementsByTagName("*");
+		  var aresult = [];
+		  for(var i=0;i<aEle.length;i++){
+			  if(aEle[i].className == sclass){
+				aresult.push(aEle[i])
+			  }
+		  }
+		  return aresult;
+	  }
+	  window.onload = function(){
+		var oDiv = document.getElementById("playimage");
+		var btnPrev = getByClass(oDiv,'prev')[0];
+		var btnNext = getByClass(oDiv,'next')[0];
+		var markLeft = getByClass(oDiv, 'mark_left')[0];
+		var markRight = getByClass(oDiv, 'mark_right')[0];
+		var aDivSmall = getByClass(oDiv,'small_pic')[0];
+		var aUlSmall = aDivSmall.getElementsByTagName("ul")[0];
+		var aSmallLi = aDivSmall.getElementsByTagName("li");
+		var aDivBig = getByClass(oDiv,'big_pic')[0];
+		var aBigLi = aDivBig.getElementsByTagName("li");
+		var nowZindex = 2;
+		var now = 0;
+		//左右按钮
+		btnPrev.onmouseover=markLeft.onmouseover = function(){
+			startMove(btnPrev,'opacity',100);
+		}
+		btnPrev.onmouseout = markLeft.onmouseout = function () {
+			  startMove(btnPrev, 'opacity', 0);
+		}
+		btnNext.onmouseover = markRight.onmouseover = function () {
+			startMove(btnNext, 'opacity', 100);
+		}
+		btnNext.onmouseout = markRight.onmouseout = function () {
+			startMove(btnNext, 'opacity', 0);
+		}
+		//大图切换
+		for(var i=0;i< aSmallLi.length;i++){
+			aSmallLi[i].index = i;
+			aSmallLi[i].onclick = function(){
+				if(this.index == now){
+					return;
+				}
+				now = this.index;
+				tab();
+			}
+			//小图滑过
+			aSmallLi[i].onmouseover = function(){
+				startMove(this, 'opacity', 100);
+			}
+			aSmallLi[i].onmouseout = function () {
+				if(this.index != now){
+					startMove(this, 'opacity', 60);
+				}
+				
+			}
+		}
+		function tab(){
+			aBigLi[now].style.zIndex = nowZindex++;
+
+			for (var i = 0; i < aSmallLi.length; i++) {
+				startMove(aSmallLi[i], "opacity", 60);
+			}
+			startMove(aSmallLi[now], "opacity", 100);
+
+			aBigLi[now].style.height = 0;
+			startMove(aBigLi[now], 'height', 320);
+			if(now == 0){
+				startMove(aUlSmall, 'left', 0);
+			}else if(now == aSmallLi.length-1){
+				startMove(aUlSmall, 'left', -(now - 2) * aSmallLi[0].offsetWidth);
+			}else{
+				startMove(aUlSmall, 'left', -(now - 1) * aSmallLi[0].offsetWidth);
+			}
+			
+		}
+		//左右按钮点击
+		btnPrev.onclick = function(){
+			now--;
+			console.log(aSmallLi.length);
+			if(now == -1){
+				now = aSmallLi.length-1;
+			}
+			tab();
+		}
+		btnNext.onclick = function () {
+			now++;
+			if(now == aSmallLi.length){
+				now = 0;
+			}
+			tab();
+		}
+		aUlSmall.style.width = aSmallLi[0].offsetWidth* aSmallLi.length+'px';
+
+		var timer = setInterval(btnNext.onclick,2000);
+		oDiv.onmouseover = function(){
+			clearInterval(timer);
+		}
+		oDiv.onmouseout = function () {
+			timer = setInterval(btnNext.onclick, 2000);
+		}
+	  }
+  </script>
+</body>
+</html>

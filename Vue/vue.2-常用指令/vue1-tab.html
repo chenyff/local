@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue版tab切换</title>
+    <script src="../lib/vue.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button.on{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <button v-for="c in menu" @click="haha($index)" :class="$index==index?'on':''">{{c}}</button>
+    <div v-for="d in banji" v-show="$index==index?true:false">{{d}}</div>
+    <script>
+        new Vue({
+            el:'body',
+            data:{
+                index:0,
+                menu:['1805B','1805C','1805D'],
+                banji:['40人','44人','90人']
+            },
+            methods:{
+                haha:function(i){
+                    this.index = i;
+                }
+            }
+        })
+        // var arr = 0;
+        // for(var i=0;i<=100;i++){
+        //     if(i%3==0&&i%5!=0){
+        //         arr+=i
+        //         console.log(i);
+        //     }
+        // }
+        // console.log(arr);
+        // var endnum = 0;
+        // for(var i=0;i<=50;i++){
+        //     endnum+=i;
+        // }
+        // console.log(endnum);
+       
+    </script>
+</body>
+</html>
