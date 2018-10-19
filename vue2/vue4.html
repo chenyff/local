@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue2</title>
+    <script src="./bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+  <div id="box" >
+      <div>{{msg | uppercase}}</div>
+  </div>
+  <script>
+     Vue.filter('uppercase',(val)=>{
+         return val.toUpperCase();
+     })
+     new Vue({
+         el:"#box",
+         data:{
+             msg:'asdasdasds'
+         }
+     })
+  </script>
+</body>
+</html>

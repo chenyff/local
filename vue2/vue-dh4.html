@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue动画一</title>
+    <link rel="stylesheet" href="./animate.css">
+    <script src="./bower_components/vue/dist/vue.min.js"></script>
+    <style>
+        *{
+            margin: 0;padding:0;
+        }
+        p{
+            background: red;
+            height: 30px;
+            width: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" v-model="msg" @input="changed">
+        <transition-group enter-active-class="jackInTheBox animated" leave-active-class="hinge animated">
+            <p v-for="(val,index) in arr2" :key='index'>{{val}}</p>
+        </transition-group>
+    </div>
+    <script>
+        new Vue({
+            el:'.box',
+            data:{
+                arr:['apple','watermelon','banana','pear','grape','orange'],
+                msg:'',
+                arr2:[]
+            },
+            methods:{
+                changed:function(){
+                    this.arr2 = [];
+                    if(this.msg == ''){
+
+                    }else{
+                        this.arr.forEach((val, index) => {
+                                if (val.indexOf(this.msg)!=-1){
+                                    console.log(this.arr[index]);
+                                    this.arr2.push(this.arr[index]);
+                                }
+                        })
+                    }
+                    console.log(this.arr2);
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

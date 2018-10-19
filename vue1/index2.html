@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由</title>
+    <script src="vue.min.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <a v-link="{path:'/chenyufei'}">陈宇飞</a>
+        <a v-link="{path:'/chenxiaofei'}">陈晓飞</a>
+        <a v-link="{path:'/chenpanfei'}">陈盼飞</a>
+        <a v-link="{path:'/chenfeifei'}">陈菲菲</a>
+        <router-view></router-view>
+    </div>
+    <template id="chenyufei">
+            <h1>我是首页</h1>
+            <div>我是你们的老师</div>
+            <a v-link='{path:"/chenyufei/eat"}'>你知道我喜欢吃什么嚒</a>
+            <a v-link='{path:"/chenyufei/play"}'>你知道我喜欢玩什么嚒</a>
+            <router-view></router-view>
+    </template>
+    <template id="chenxiaofei">
+        <h1>我是陈晓飞</h1>
+        <div>我是陈宇飞他弟</div>
+    </template>
+    <template id="chenpanfei">
+        <h1>我是陈盼飞</h1>
+        <div>我是陈宇飞他哥</div>
+    </template>
+    <template id="chenfeifei">
+        <h1>我是陈飞飞</h1>
+        <div>我是陈宇飞他姐</div>
+    </template>
+    <template id="eat">
+        <h1>我喜欢吃你下面</h1>
+        <div>方便面</div>
+    </template>
+    <template id="play">
+        <h1>我曾经喜欢打王者荣耀</h1>
+        <div>脾气不好卸载了</div>
+    </template>
+    <script>
+        //1.准备开始阶段
+        var app = Vue.extend();
+        //2.准备全局组件
+        var chenyufei = Vue.extend({
+            template:'#chenyufei',
+        });
+        var chenxiaofei = Vue.extend({
+                template: '#chenxiaofei'
+        });
+        var chenpanfei = Vue.extend({
+                template: '#chenpanfei'
+        });
+        var chenfeifei = Vue.extend({
+                template:'#chenfeifei'
+        });
+        //3.准备路由
+        var router = new VueRouter();
+
+        //4.关联模板
+        router.map({
+            'chenyufei':{
+                component:{
+                    template:'#chenyufei'
+                },
+                subRoutes:{
+                    'eat':{
+                        component:{
+                            template:'#eat'
+                        }
+                    },
+                    'play': {
+                        component: {
+                            template: '#play'
+                        }
+                    }
+                }
+            },
+            'chenxiaofei':{
+                component:chenxiaofei
+            },
+            'chenpanfei': {
+                component: chenpanfei
+            },
+            'chenfeifei': {
+                component: chenfeifei
+            }
+        });
+        router.start(app,'#box');
+        // router.redirect({
+        //     '/':'chenfeifei',
+        //     '/chenxiaofei':'chenfeifei'
+        // })
+    
+    </script>
+</body>
+</html>

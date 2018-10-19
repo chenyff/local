@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件传参</title>
+    <script src="./bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+       <h1>我是父组件，我的名字叫=>{{msg.a}}</h1>
+       <my-aaa :mm="msg"></my-aaa>
+    </div>
+    <template id="aaa">
+        <div>
+            <button @click="cg">改变</button>
+            <h1>你猜能不能拿到数据=>{{aa}}</h1>
+        </div>
+        
+    </template>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                msg:{
+                    a:'我是父级数据'
+                }
+            },
+            components: {
+                'my-aaa': {
+                    data(){
+                        return{
+                            aa:''
+                        }
+                    },
+                    mounted(){
+                        this.aa = this.mm.a;
+                    },
+                    methods:{
+                        cg:function(){
+                            this.aa='摸我';
+                        }
+                    },
+                    props: ['mm'],
+                    template: "#aaa"
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
