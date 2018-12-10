@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../bower_components/vue/dist/vue.min.js"></script>
+    <script src="../bower_components/vue-router/dist/vue-router.min.js"></script>
+    <style>
+      .router-link-exact-active{
+          color: red;
+          font-size: 30px;
+          transition: .5s;
+      }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <router-link to="/yu">陈宇飞</router-link>
+        <router-link to="/xiao">陈晓飞</router-link> 
+        <router-link to="/pan">陈盼飞</router-link> 
+        <router-view></router-view>
+    </div>
+    <template id="yu">
+        <h1>我是陈宇飞</h1>
+    </template>
+    <template id="xiao">
+        <h1>我是陈晓飞</h1>
+    </template>
+    <template id="pan">
+        <h1>我是陈盼飞</h1>
+    </template>
+    <script>
+        var Yu = {
+            template:`
+            <div>
+            我是陈宇飞
+            <router-link to="/yu/address">你想知道我的位置么</router-link>
+            <router-link to="/yu/height">你想知道我的身高么</router-link> 
+            <router-view></router-view>
+            </div>`
+        };
+        var Xiao = {
+            template:`
+            <div>
+            我是陈晓飞
+            </div>`
+        };
+        var Pan = {
+            template: `
+            <div>
+            我是陈盼飞
+            </div>`
+            };
+        var address = {
+                template: `
+            <div>
+            我是地址
+            </div>`
+        };
+        var height = {
+                template: `
+            <div>
+            我是陈盼飞
+            </div>`
+        };
+
+        //配置路由
+        var routes = [
+            {
+                path:'/yu',
+                component:Yu,
+                children:[
+                    { path: 'address', component: address },
+                    { path: 'height', component: height }
+                ]
+            },
+            {path:'/xiao',component:Xiao},
+            {path:'/pan', component:Pan}
+            
+        ];
+
+        //生成路由
+        var router = new VueRouter({
+            routes
+        });
+
+        new Vue({
+            router,
+            el:'#box'
+        })
+    
+    </script>
+</body>
+</html>
