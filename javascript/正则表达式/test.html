@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var str = 'abc123de45fgh678qqq111';
+    function findNum(str){
+        var tmp = '',
+            arr = [];
+        for(var i=0;i<str.length;i++){
+            var cur = str[i];
+            if(!isNaN(cur)){
+                tmp+= cur;
+            }else{
+                if(tmp){
+                    arr.push(tmp);
+                    tmp = '';
+                }
+            }
+        }
+        if(tmp){
+            arr.push(tmp);
+        }
+        return arr;
+    }    
+    // console.log(findNum(str));
+    // var reg = /\d+/g;
+    // console.log(str.match(reg));
+    // var regParam = 'cm';
+    // var reg1 = new RegExp(regParam + '1');
+    // console.log(reg1);
+    // var str = '12233334444';
+    // var reg = /\d{2}/g;
+    // var res = str.match(reg);
+    // console.log(res);
+    // var str = '123aaa456';
+    // var reg = /\d+/;
+    // var res = str.match(reg);
+    // console.log(res);
+    var str = 'https://www.baidu.com?a=1&b=2';
+    var obj = {},
+        reg = /([^?&#+]+)=([^?&#+]+)/g;
+        str.replace(reg, function ($0, $1, $2) {
+            console.log(arguments);
+            obj[$1] = $2;
+        })
+    
+    </script>
+</body>
+</html>
